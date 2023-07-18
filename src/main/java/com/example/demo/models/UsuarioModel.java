@@ -1,9 +1,16 @@
 package com.example.demo.models;
 
-public class UsuarioModel {
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "usuarios")
+public class UsuarioModel {
     //region Atributos
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true, nullable = false)
     private Long id;
+
     private String nombre;
     private String email;
     private Integer prioridad;
